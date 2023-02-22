@@ -37,6 +37,17 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>2.0.8</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-http</artifactId>
+            <version>5.8.4</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -44,16 +55,62 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                <version>2.19.1</version>-->
+<!--            </plugin>-->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.8</version>
                 <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
+                    <!--  根节点HTML报告页面的名称  -->
+                    <title>note 单测覆盖率</title>
+                    <!--  要包含在报告中的类文件列表。可以使用通配符（*和?）。当未指定时，所有内容都将包括在内  -->
+<!--                    <includes>-->
+<!--                        <include>com/**/*</include>-->
+<!--                    </includes>-->
+                    <!--  包含执行数据的文件  -->
+                    <dataFile>target/jacoco.exec</dataFile>
+                    <!--  要生成的报告格式列表。支持的格式是HTML、XML和CSV。如果没有给出值，则默认为所有格式  -->
+                    <formats>HTML</formats>
+                    <!--  报告的输出目录  -->
+<!--                    <outputDirectory>target/site</outputDirectory>-->
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>pre-test</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>post-test</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
-
+<!--    <reporting>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.jacoco</groupId>-->
+<!--                <artifactId>jacoco-maven-plugin</artifactId>-->
+<!--                <reportSets>-->
+<!--                    <reportSet>-->
+<!--                        <reports>-->
+<!--                            &lt;!&ndash; select non-aggregate reports &ndash;&gt;-->
+<!--                            <report>report</report>-->
+<!--                        </reports>-->
+<!--                    </reportSet>-->
+<!--                </reportSets>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </reporting>-->
 </project>
