@@ -1,2 +1,17 @@
 # 笔记配置
- - 分Module创建
+ - db 数据库相关内容
+   - mysql
+   - mongo
+ - designpattern 设计模式相关
+ - studytool 学习，工具
+   - docker
+   - git
+   - k8s
+   - linux
+   - macos
+   - nacos
+   - ssl
+ - thred 多线程
+   - feature
+ - utils 工具类
+   - url转码解码
