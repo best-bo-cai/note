@@ -3,6 +3,8 @@
    - mysql
    - mongo
  - designpattern 设计模式相关
+ - exercise 代码练习
+   - stream
  - studytool 学习，工具
    - docker
    - git

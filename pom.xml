@@ -8,7 +8,8 @@
         <module>studytool</module>
         <module>db</module>
 		<module>designpattern</module>
-	</modules>
+        <module>exercise</module>
+    </modules>
     <parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
