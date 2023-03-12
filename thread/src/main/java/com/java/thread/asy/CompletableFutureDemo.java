@@ -1,8 +1,12 @@
 package com.java.thread.asy;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.concurrent.*;
 
+@Slf4j
 public class CompletableFutureDemo {
+
     private static final ExecutorService executorService = new ThreadPoolExecutor(
             16,
             24,
@@ -20,6 +24,7 @@ public class CompletableFutureDemo {
             try {
                 return getCat();
             } catch (InterruptedException e) {
+                log.info("错误信息：{}", e.getMessage());
                 throw new RuntimeException(e);
             }
         }, executorService);
@@ -31,6 +36,7 @@ public class CompletableFutureDemo {
             try {
                 return getDog();
             } catch (InterruptedException e) {
+                log.info("错误信息：{}", e.getMessage());
                 throw new RuntimeException(e);
             }
         }, executorService);
@@ -42,7 +48,7 @@ public class CompletableFutureDemo {
         stringCompletableFuture.get();
         stringCompletableFuture1.join();
 
-        System.out.println("总共用时" + (System.currentTimeMillis() - startTime) + "ms");
+        log.info("总共用时" + (System.currentTimeMillis() - startTime) + "ms");
     }
 
     public static String getCat() throws InterruptedException {

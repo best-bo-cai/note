@@ -4,6 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
+		<module>thread</module>
         <module>utils</module>
         <module>studytool</module>
         <module>db</module>

@@ -1,5 +1,8 @@
 package com.java.thread.asy;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class MessageBuilder {
     public String getMessage(String name) {
         StringBuilder result = new StringBuilder();
@@ -13,12 +16,12 @@ public class MessageBuilder {
     }
 
     public String getCat() {
-        System.out.println("猫");
+        log.info("猫");
         return "Tom";
     }
 
     public String getDog() {
-        System.out.println("鼠");
+        log.info("鼠");
         return "Jerry";
     }
 }
