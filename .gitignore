@@ -11,3 +11,4 @@ local
 log/
 logs/
 target/
+.vscode

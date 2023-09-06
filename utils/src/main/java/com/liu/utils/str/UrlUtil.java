@@ -1,4 +1,4 @@
-package com.liu.utils;
+package com.liu.utils.str;
 
 import java.io.UnsupportedEncodingException;
 
