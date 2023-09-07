@@ -1,4 +1,4 @@
-package operlog.javers;
+package javers;
 
 import lombok.Builder;
 import lombok.Data;

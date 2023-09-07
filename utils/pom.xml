@@ -51,8 +51,7 @@
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <version>5.8.14</version>
-            <scope>test</scope>
+            <version>5.8.21</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.cronutils/cron-utils -->
         <dependency>
@@ -69,18 +68,6 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-math3</artifactId>
             <version>3.6.1</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>5.8.14</version>
-            <scope>compile</scope>
-        </dependency>
-        <!-- 其他依赖 -->
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>javax.mail-api</artifactId>
-            <version>1.6.2</version>
         </dependency>
 
         <!--    表达式求值引擎    -->
