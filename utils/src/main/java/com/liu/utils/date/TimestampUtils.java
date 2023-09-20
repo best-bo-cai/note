@@ -1,7 +1,14 @@
 package com.liu.utils.date;
 
-import java.time.*;
+import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.lang.Console;
 
+import java.time.*;
+import java.util.Date;
+
+/**
+ * 时间戮工具类,可使用hutool工具类代替
+ */
 public class TimestampUtils {
 
     // 获取当前时间戳（毫秒）
@@ -97,6 +104,9 @@ public class TimestampUtils {
         System.out.println("当前小时的0分钟的时间戳（秒）：" + getHourTimestampInSeconds());
         System.out.println("今天0点的时间戳（毫秒）：" + getTodayTimestamp());
         System.out.println("今天0点的时间戳（秒）：" + getTodayTimestampInSeconds());
+        // Hutool工具类
+        Console.log(DateUtil.beginOfDay(new Date()).getTime());
+        Console.log(DateUtil.endOfDay(new Date()).getTime());
         System.out.println("本周一0点的时间戳（毫秒）：" + getCurrentWeekMondayTimestamp());
         System.out.println("本周一0点的时间戳（秒）：" + getCurrentWeekMondayTimestampInSeconds());
         System.out.println("本月1号0点的时间戳（毫秒）：" + getCurrentMonthFirstDayTimestamp());
