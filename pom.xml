@@ -26,8 +26,10 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <hutool.version>5.8.21</hutool.version>
+        <hutool.version>5.8.24</hutool.version>
         <java.version>11</java.version>
+        <apache.math3.version>3.6.1</apache.math3.version>
+        <apache.lang3.version>3.13.0</apache.lang3.version>
     </properties>
 
     <dependencies>
@@ -41,22 +43,29 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-        </dependency>
     </dependencies>
 
+    <!--依赖传递官方相关说明：https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#transitive-dependencies-->
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool.version}</version>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache.lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-math3</artifactId>
+                <version>${apache.math3.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-core</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-crypto</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
             <dependency>
