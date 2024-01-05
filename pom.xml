@@ -19,17 +19,18 @@
         <version>2.7.8</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.liu</groupId>
     <artifactId>note</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>note</name>
-    <description>Demo project for Spring Boot</description>
 
     <properties>
         <hutool.version>5.8.24</hutool.version>
         <java.version>11</java.version>
         <apache.math3.version>3.6.1</apache.math3.version>
         <apache.lang3.version>3.13.0</apache.lang3.version>
+        <alibaba.fastjson2.version>2.0.37</alibaba.fastjson2.version>
     </properties>
 
     <dependencies>
@@ -48,6 +49,11 @@
     <!--依赖传递官方相关说明：https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#transitive-dependencies-->
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${alibaba.fastjson2.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
