@@ -1,47 +1,13 @@
 package com.liu.utils.json;
 
 import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class JSONUtils {
     private static final Logger logger = LoggerFactory.getLogger(JSONUtils.class);
-
-    /**
-     * JSON数组字符串转数组对象
-     *
-     * @param str JSON数组字符串
-     * @return JSON数组对象
-     */
-    public static Object strParseArray(String str) {
-        if (str == null || "".equals(str)) {
-            return null;
-        }
-        boolean validJsonArray = JSON.isValidArray(str);
-        if (!validJsonArray) {
-            logger.error("无效的JSONArray字符串，str：{}", str);
-            throw new RuntimeException("无效的JSONArray字符串");
-        }
-        return JSON.parseArray(str);
-    }
-
-    /**
-     * JSON字符串转对象
-     *
-     * @param str JSON字符串
-     * @return JSON对象
-     */
-    public static Object strParseObject(String str) {
-        if (str == null || "".equals(str)) {
-            return null;
-        }
-        boolean validJson = JSON.isValidObject(str);
-        if (!validJson) {
-            logger.error("无效的JSON字符串，str：{}", str);
-            throw new RuntimeException("无效的JSON字符串");
-        }
-        return JSON.parseObject(str);
-    }
 
     /**
      * JSON对象转字符串
@@ -54,5 +20,28 @@ public class JSONUtils {
             return "";
         }
         return JSON.toJSONString(o);
+    }
+
+    /**
+     * 解析任意JSON串，解析返回后的JSON
+     *
+     * @param str 需要解析的JSON串
+     * @return 解析后的JSON串，如果不是JSON，则原样返回。
+     */
+    public static Object parseJson(String str) {
+        boolean validJson = JSON.isValid(str);
+        if (validJson) {
+            Object obj = JSON.parse(str);
+            if (obj instanceof JSONObject) {
+                return JSONObject.parseObject(obj.toString());
+            } else if (obj instanceof JSONArray) {
+                return JSONArray.parseArray(obj.toString());
+            } else {
+                return null;
+            }
+        } else {
+            logger.error("无效的JSON字符串，str：{}", str);
+            throw new RuntimeException("无效的JSON字符串");
+        }
     }
 }
